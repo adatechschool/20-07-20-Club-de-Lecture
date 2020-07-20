@@ -4,6 +4,6 @@ from django.db import models
 
 
 class Post(models.Model):
-    user_id = models.IntegerField()
-    date = models.DateField()
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    date = models.DateTimeField()
     description = models.CharField(max_length=500)
