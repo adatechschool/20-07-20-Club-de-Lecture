@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'post_back.apps.PostBackConfig',
+    "rest_framework",
 ]
 
 MIDDLEWARE = [
