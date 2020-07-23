@@ -1,17 +1,17 @@
 from rest_framework import serializers
 from .models import User, Post, Media
 
-class UserSerializer(serializers.HyperlinkedModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ("user", "email", "password", "avatar")
+        fields = ("user_name", "email", "password", "avatar")
 
-class PostSerializer(serializers.HyperlinkedModelSerializer):
+class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
-        fields = ("user_id", "date", "description")
+        fields = ("user", "creation_date", "description")
 
-class MediaSerializer(serializers.HyperlinkedModelSerializer):
+class MediaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Media
-        fields = ("post_id", "content", "type")
+        fields = ("post", "content", "type")
