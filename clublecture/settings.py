@@ -25,7 +25,8 @@ SECRET_KEY = '^95d5k(^%7uu%8utod(mef(8*zmfz=2_&bd5n-ziuecz@ba*h_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["192.168.4.28",
+                 "127.0.0.1"]
 
 
 # Application definition
@@ -79,11 +80,23 @@ WSGI_APPLICATION = 'clublecture.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'back',
+        'USER': 'nicolas',
+        'PASSWORD': 'Hydra!00',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
+# sqlite db
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+#
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
