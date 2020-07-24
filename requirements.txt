@@ -1,0 +1,5 @@
+gunicorn
+django
+django_heroku
+djangorestframework
+django-cors-headers
