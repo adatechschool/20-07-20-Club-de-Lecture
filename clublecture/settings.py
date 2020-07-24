@@ -26,7 +26,8 @@ SECRET_KEY = '^95d5k(^%7uu%8utod(mef(8*zmfz=2_&bd5n-ziuecz@ba*h_'
 DEBUG = True
 
 ALLOWED_HOSTS = ["192.168.4.28",
-                 "127.0.0.1"]
+                 "127.0.0.1",
+                 "clublecture.herokuapp.com"]
 
 
 # Application definition
