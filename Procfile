@@ -1,1 +1,1 @@
-web: gunicorn clublecture.wsgi
+web: gunicorn clublecture.wsgi --log-file -
