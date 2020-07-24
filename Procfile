@@ -1,1 +1,1 @@
-web: gunicorn clublecture.wsgi
+web: gunicorn nicolas_portfolio_2020.wsgi
