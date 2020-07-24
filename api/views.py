@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 
 from django.http import JsonResponse
 from rest_framework.parsers import JSONParser
@@ -7,6 +8,10 @@ from rest_framework import status
 from .serializers import UserSerializer, PostSerializer, MediaSerializer
 from .models import User, Post, Media
 from rest_framework.decorators import api_view
+
+#necessary for Heroku
+def placeholder(request):
+	return HttpResponse("")
 
 
 # for adding  and fetching users
