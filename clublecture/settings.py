@@ -83,11 +83,11 @@ DATABASES = {
     'default': {
         'CONN_MAX_AGE': 500,
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'back',
-        'USER': 'nicolas',
-        'PASSWORD': 'Hydra!00',
-        # 'HOST': ['localhost', "https://clublecture.herokuapp.com"],
-        'PORT': '',
+        'Name': "d1eirk7r375ipk",
+        'USER': 'syfygfkvozguhu',
+        'PASSWORD': '654f189f73dabbc8c0d3cf0271a73ef6776f110433b139d652054e27bcbce55c',
+        'HOST': "ec2-54-246-90-10.eu-west-1.compute.amazonaws.com",
+        'PORT': '5432',
     }
 }
 
