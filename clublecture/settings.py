@@ -77,6 +77,7 @@ WSGI_APPLICATION = 'clublecture.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
+ALLOWED_HOSTS = ['localhost', "clublecture.herokuapp.com"]
 
 # this works localy
 DATABASES = {
@@ -93,7 +94,6 @@ DATABASES = {
 db_from_env = dj_database_url.config()
 DATABASES['default'].update(db_from_env)
 
-ALLOWED_HOSTS = ['localhost', "clublecture.herokuapp.com"]
 
 
 # Password validation
