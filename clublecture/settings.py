@@ -81,7 +81,6 @@ WSGI_APPLICATION = 'clublecture.wsgi.application'
 
 DATABASES = {
     'default': {
-        'CONN_MAX_AGE': 500,
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'back',
         'USER': 'nicolas',
