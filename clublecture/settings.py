@@ -85,7 +85,7 @@ DATABASES = {
         'NAME': 'back',
         'USER': 'nicolas',
         'PASSWORD': 'Hydra!00',
-        'HOST': 'localhost',
+        # 'HOST': ['localhost', "https://clublecture.herokuapp.com"],
         'PORT': '',
     }
 }
