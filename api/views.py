@@ -21,9 +21,9 @@ def users(request):
 		queryset = User.objects.all()
 
 		# to search for specific users that contain the given characters
-		user = request.query_params.get("user", None)
+		user = request.query_params.get("user_name", None)
 		if user is not None:
-			queryset = queryset.filter(user__icontains=user)
+			queryset = queryset.filter(user_name__icontains=user)
 
 		# returns all users that match the filter
 		users_serializer = UserSerializer(queryset, many=True)

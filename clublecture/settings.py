@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'clublecture.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-ALLOWED_HOSTS = ['localhost', "clublecture.herokuapp.com"]
+ALLOWED_HOSTS = ['localhost', "clublecture.herokuapp.com", "127.0.0.1"]
 
 # this works localy
 DATABASES = {
