@@ -4,4 +4,4 @@ gunicorn
 psycopg2
 pytz
 django-rest_framework
-corsheaders
+django-cors-headers
