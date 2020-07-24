@@ -79,24 +79,17 @@ WSGI_APPLICATION = 'clublecture.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'Name': "d1eirk7r375ipk",
-        'USER': 'syfygfkvozguhu',
-        'PASSWORD': '654f189f73dabbc8c0d3cf0271a73ef6776f110433b139d652054e27bcbce55c',
-        'HOST': "ec2-54-246-90-10.eu-west-1.compute.amazonaws.com",
-        'PORT': '5432',
-    }
-}
-
-# sqlite db
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'back',
+#         'USER': 'nicolas',
+#         'PASSWORD': 'Hydra!00',
+#         'HOST': "ec2-54-246-90-10.eu-west-1.compute.amazonaws.com",
+#         'PORT': '5432',
 #     }
 # }
-#
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
