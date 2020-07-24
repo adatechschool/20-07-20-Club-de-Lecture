@@ -4,7 +4,7 @@
 
   format:
   
-    { 
+     { 
      "user_name": "", STRING
      "email": "", STRING
      "password": "", STRING
@@ -19,7 +19,7 @@ filtrage:
 
   format:
   
-     { 
+      { 
       "user": 1, INT
       "creation_date": "2000-10-23T04:05:06Z", DATETIME
       "description": "hey" STRING
@@ -28,7 +28,6 @@ filtrage:
 filtrage:  
 
     /posts?user_name=
-    
     /posts?description=  
    
  
