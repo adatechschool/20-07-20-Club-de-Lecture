@@ -6,3 +6,4 @@
 *.pyc
 *.pyc
 '.env' 
+*.pyc
