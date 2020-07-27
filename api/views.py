@@ -5,6 +5,7 @@ from rest_framework import status
 from .serializers import UserSerializer, PostSerializer, MediaSerializer
 from .models import User, Post, Media
 from rest_framework.decorators import api_view
+import hashlib as hash
 
 
 # for adding  and fetching users
@@ -27,6 +28,7 @@ def users(request):
 		user_data = JSONParser().parse(request)
 		user_serializer = UserSerializer(data=user_data)
 		# verifies POST data
+		user_data["password"] = hash.sha512(bytes(user_data["password"], "utf-8")).hexdigest()
 		if user_serializer.is_valid():
 			user_serializer.save()
 			return JsonResponse(user_serializer.data, status=status.HTTP_201_CREATED)
