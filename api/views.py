@@ -39,6 +39,18 @@ def users(request):
 		# returns an error if NOT NULL or UNIQUE rules are not respected
 		return JsonResponse(users_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+@api_view(["POST"])
+def login(request):
+	if request.method == "POST":
+		users_data = JSONParser().parse(request)
+		try:
+			User.objects.get(user_name=users_data["user_name"], password=users_data["password"])
+			return JsonResponse({"message": "User exists!"})
+		except:
+			return JsonResponse({"message": "User doesnt exists!"})
+
+	return JsonResponse({"message": "Bad request"})
+
 
 #  for adding and fetching posts
 @api_view(["GET", "POST", "PUT", "DELETE"])

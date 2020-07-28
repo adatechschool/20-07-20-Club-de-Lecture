@@ -1,12 +1,10 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 # Create your models here.
 
 # generate the table to store user account data
 class User(models.Model):
-    user_name = models.CharField(max_length=20, blank=False, unique=True)
-    email = models.CharField(max_length=30, blank=False,  unique=True)
-    password = models.CharField(max_length=10000, blank=False)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     avatar = models.CharField(max_length=200, blank=True)
 
 # generate the table to store posts
