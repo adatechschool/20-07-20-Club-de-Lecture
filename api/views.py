@@ -40,6 +40,8 @@ def users(request):
 		return JsonResponse(users_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
+
+
 #  for adding and fetching posts
 @api_view(["GET", "POST", "PUT", "DELETE"])
 def posts(request):
