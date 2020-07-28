@@ -11,7 +11,7 @@
    </head>
  
    <body>
-   <form class="" method="post" action="https://clublecture.herokuapp.com/api/users">
+   <form id="inscription" method="post" action="https://clublecture.herokuapp.com/api/users">
       <label for="user_name"> pseudo :  </label>
       <input type="text" name="user_name" id="username"><br>
 
@@ -20,10 +20,9 @@
 
       <label for="email"> email : </label>
       <input type="email" name="email" id="email"><br>
- 
-      <input type="submit" value="submit">
- 
+
       </form>
+      <button onClick="sendFormJSON()">Soumettre</button>
  
    </body>
  
