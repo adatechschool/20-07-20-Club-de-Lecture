@@ -1,5 +1,11 @@
-var object = {};
-formData.forEach(function(value, key){
+function envoiDonnees() {
+  let formData = new FormData(document.getElementById("form"));
+  let object = {};
+  formData.forEach(function(value, key){
     object[key] = value;
-});
-var json = JSON.stringify(object);
+  });
+  let json = JSON.stringify(object);
+
+  return
+}
+
