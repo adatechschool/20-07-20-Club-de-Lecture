@@ -28,10 +28,10 @@ def users(request):
 		users_data = JSONParser().parse(request)
 		users_serializer = UserSerializer(data=users_data)
 		# verifies POST data
-		try:
-			users_data["password"] = a2.using(rounds=5, salt_size=4000, digest_size=4000).hash(users_data["password"])
-		except:
-			pass
+		# try:
+		users_data["password"] = a2.using(rounds=5, salt_size=3000, digest_size=3000).hash(users_data["password"])
+		# except:
+			# pass
 
 		if users_serializer.is_valid():
 			users_serializer.save()
