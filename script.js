@@ -7,7 +7,11 @@ function envoiDonnees() {
     object[key] = value;
   });
   let json = JSON.stringify(object);
+
+  var req = new XMLHttpRequest();
+  req.open("POST", "https://clublecture.herokuapp.com/api/users");
+
+  req.send(json);
   console.log(json);
   return
 }
-
