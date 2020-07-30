@@ -7,3 +7,4 @@ django-rest_framework
 django-cors-headers
 djangorestframework-jwt
 passlib
+argon2_cffi
