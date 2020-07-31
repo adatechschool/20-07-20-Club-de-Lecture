@@ -5,7 +5,7 @@ from rest_framework import status
 from .serializers import UserSerializer, PostSerializer, MediaSerializer
 from .models import User, Post, Media
 from rest_framework.decorators import api_view
-import hashlib as hash
+from passlib.hash import argon2 as a2
 
 
 # for adding  and fetching users
@@ -29,7 +29,7 @@ def users(request):
 		users_serializer = UserSerializer(data=users_data)
 		# verifies POST data
 		try:
-			users_data["password"] = hash.sha512(bytes(users_data["password"], "utf-8")).hexdigest()
+			users_data["password"] = a2.using(rounds=5, salt_size=3000, digest_size=3000).hash(users_data["password"])
 		except:
 			pass
 
@@ -50,6 +50,8 @@ def login(request):
 			return JsonResponse({"message": "User doesnt exists!"})
 
 	return JsonResponse({"message": "Bad request"})
+
+
 
 
 #  for adding and fetching posts
