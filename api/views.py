@@ -47,11 +47,9 @@ def login(request):
 			User.objects.get(user_name=users_data["user_name"], password=users_data["password"])
 			return JsonResponse({"message": "User exists!"})
 		except:
-			return JsonResponse({"message": "User doesnt exists!"})
+			return JsonResponse({"message": "Wrong credentials!"})
 
 	return JsonResponse({"message": "Bad request"})
-
-
 
 
 #  for adding and fetching posts

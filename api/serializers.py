@@ -4,7 +4,7 @@ from .models import User, Post, Media
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ("user", "email", "password", "avatar")
+        fields = ("__all__")
 
 class PostSerializer(serializers.ModelSerializer):
     class Meta:
