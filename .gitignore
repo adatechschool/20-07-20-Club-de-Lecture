@@ -2,5 +2,6 @@
 *.pot
 *.pyc
 clublecture\__pycache__
+api\__pycache__
 db.sqlite3
 media
