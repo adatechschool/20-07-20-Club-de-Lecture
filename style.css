@@ -1,0 +1,28 @@
+html {
+  background: darkgrey;
+  display: flex;
+  justify-content: center;
+}
+
+form {
+  background: #aeabd2;
+  margin: 1rem;
+  padding: 1rem; 
+  display: flex;
+  flex-direction: column;
+}
+
+div {
+  margin: 5px;
+  display: flex;
+  justify-content: space-between ;
+}
+
+label {
+  margin : 5px 10px 0px 0px;
+}
+
+p{
+  display: flex;
+  justify-content: center;
+}
