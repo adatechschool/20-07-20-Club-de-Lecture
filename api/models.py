@@ -1,11 +1,25 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
+from django.utils.translation import ugettext_lazy as _
+
+from .managers import CustomUserManager
 # Create your models here.
 
 # generate the table to store user account data
-class User(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    avatar = models.CharField(max_length=200, blank=True)
+class CustomUser(AbstractUser):
+    username = None
+    email = models.EmailField(_("email_address"), unique=True)
+
+    USERNAME_FIELD = "email"
+    REQUIRED_FIELDS = []
+
+    objects = CustomUserManager()
+
+    # spouse_name = models.CharField(blank=True, max_length=100)
+    # date_of_birth = models.DateField(blank=True, null=True)
+
+    def __str__(self):
+        return self.email
 
 # generate the table to store posts
 class Post(models.Model):
