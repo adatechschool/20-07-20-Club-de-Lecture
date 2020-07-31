@@ -12,7 +12,7 @@ function envoiDonnees() {
   req.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 201){
       document.getElementById("test").innerHTML = "votre compte a bien été créé";}
-    else {
+    else if (this.readyState == 4) {
       document.getElementById("test").innerHTML = "votre compte n'a pas peu être créé";
     }
   };
