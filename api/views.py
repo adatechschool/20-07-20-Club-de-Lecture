@@ -28,12 +28,12 @@ def users(request):
 	elif request.method == "POST":
 		users_data = JSONParser().parse(request)
 		users_serializer = UserSerializer(data=users_data)
-		# verifies POST data
+		# Encrypts password
 		try:
 			users_data["password"] = a2.using(rounds=5, salt_size=3000, digest_size=3000).hash(users_data["password"])
 		except:
 			pass
-
+		# verifies POST data
 		if users_serializer.is_valid():
 			users_serializer.save()
 			return JsonResponse(users_serializer.data, status=status.HTTP_201_CREATED)
@@ -42,12 +42,26 @@ def users(request):
 
 @api_view(["PUT"])
 def settings_password(request, user_name):
+	# Check if selected user exists
+	try:
+		user = User.objects.get(user_name=user_name)
+	except User.DoesNotExist:
+		return JsonResponse({"message": "User does not exist"}, status=status.HTTP_404_NOT_FOUND)
+
 	if request.method == "PUT":
+		user_data = JSONParser().parse(request)
+		user_serializer = UserSerializer(user, data=user_data)
+		# Encrypts password
 		try:
-			user = User.objects.get(user_name=user_name)
-		except User.DoesNotExist:
-			return JsonResponse({"message": "Post does not exist"}, status=status.HTTP_404_NOT_FOUND)
-	return JsonResponse({"message": "KEK"}, status=status.HTTP_404_NOT_FOUND)
+			user_data["password"] = a2.using(rounds=5, salt_size=3000, digest_size=3000).hash(user_data["password"])
+		except:
+			pass
+		# verifies PUT data
+		if user_serializer.is_valid():
+			user_serializer.save()
+			return JsonResponse(user_serializer.data)
+
+	return JsonResponse(user_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 #  for adding and fetching posts
@@ -92,8 +106,9 @@ def post(request, pk):
 	if request.method == "PUT":
 		post_data = JSONParser().parse(request)
 		post_serializer = PostSerializer(post, data=post_data)
-		# verifies POST data
+		# verifies PUT data
 		if post_serializer.is_valid():
 			post_serializer.save()
 			return JsonResponse(post_serializer.data)
+
 		return JsonResponse(post_serializer.errors, status=status.HTTP_400_BAD_REQUEST)

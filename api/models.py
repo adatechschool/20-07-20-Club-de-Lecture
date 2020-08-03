@@ -12,7 +12,7 @@ class User(models.Model):
 # generate the table to store posts
 class Post(models.Model):
     user = models.ForeignKey("User", on_delete=models.CASCADE)
-    creation_date = models.DateTimeField(editable=False)
+    creation_date = models.DateTimeField()
     description = models.CharField(max_length=500, blank=False)
 
 # generate the table to store the media that belong to certain posts
