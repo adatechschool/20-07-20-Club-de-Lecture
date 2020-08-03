@@ -34,8 +34,9 @@ def users(request):
 		except:
 			pass
 		# verifies POST data
+
 		if users_serializer.is_valid():
-			users_serializer.save()
+			users_serializer.save(method="POST")
 			return JsonResponse(users_serializer.data, status=status.HTTP_201_CREATED)
 		# returns an error if NOT NULL or UNIQUE rules are not respected
 		return JsonResponse(users_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
@@ -56,9 +57,11 @@ def settings_password(request, user_name):
 			user_data["password"] = a2.using(rounds=5, salt_size=3000, digest_size=3000).hash(user_data["password"])
 		except:
 			pass
+
+		method = request.method
 		# verifies PUT data
 		if user_serializer.is_valid():
-			user_serializer.save()
+			user_serializer.save(method=method)
 			return JsonResponse(user_serializer.data)
 
 	return JsonResponse(user_serializer.errors, status=status.HTTP_400_BAD_REQUEST)

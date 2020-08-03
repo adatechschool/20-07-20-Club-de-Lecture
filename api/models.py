@@ -9,6 +9,18 @@ class User(models.Model):
     password = models.CharField(max_length=10000, blank=False)
     avatar = models.CharField(max_length=200, blank=True)
 
+    def save(self, method=None, *args, **kwargs):
+        print(method)
+        if method == "PUT":
+            if User.objects.get(user_name=user_name):
+                print("lol")
+            print("hey")
+            # try:
+            #     existing_user = User.objects.get(user_name=user_name)
+            # except:
+            #     pass
+        return
+
 # generate the table to store posts
 class Post(models.Model):
     user = models.ForeignKey("User", on_delete=models.CASCADE)
