@@ -5,7 +5,7 @@ from django.db import models
 # generate the table to store user account data
 class User(models.Model):
     user_name = models.CharField(max_length=20, blank=False, unique=True)
-    email = models.CharField(max_length=30, blank=False,  unique=True)
+    email = models.EmailField(max_length=40, blank=False,  unique=True)
     password = models.CharField(max_length=10000, blank=False)
     avatar = models.CharField(max_length=200, blank=True)
 
