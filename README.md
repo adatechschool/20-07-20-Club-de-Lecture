@@ -9,7 +9,7 @@
      "user_name": "", STRING
      "email": "", STRING
      "password": "", STRING
-     "avatar": "", STRING
+     "avatar": "", STRING !! Optional
      }
 
 filtrage:
@@ -20,17 +20,26 @@ filtrage:
 ### https://clublecture.herokuapp.com/api/posts
 
   format:
-  
+
       {
-      "user": 1, INT
-      "creation_date": "2000-10-23T04:05:06Z", DATETIME
+      "user_name": "lol", CHAR
       "description": "hey" STRING
       }
 
 filtrage:  
 
     /posts?user_name=
-    /posts?description=  
+    /posts?description=
+
+## Change Post
+### https://clublecture.herokuapp.com/api/(user_name)/(post_id)
+
+  format:
+
+      {
+      "user_name": "lol", CHAR
+      "description": "hey" STRING
+      }
 
 ## Change the user password
 ### https://clublecture.herokuapp.com/api/(user_name)/settings/password

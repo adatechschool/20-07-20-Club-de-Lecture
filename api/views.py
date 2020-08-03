@@ -99,7 +99,7 @@ def posts(request):
 
 # Access single posts for modification or maybe even display, idk
 @api_view(["PUT"])
-def post(request, user_name, pk):
+def modify_post(request, user_name, pk):
 	# Check if selected post exists
 	try:
 		post = Post.objects.get(pk=pk, user_name=user_name)
@@ -109,7 +109,7 @@ def post(request, user_name, pk):
 	if request.method == "PUT":
 		post_data = JSONParser().parse(request)
 		post_data["user_name"] = user_name
-		
+
 		post_serializer = PostSerializer(post, data=post_data)
 		# verifies PUT data
 		if post_serializer.is_valid():
