@@ -15,6 +15,7 @@ class User(models.Model):
 
 # generate the table to store posts
 class Post(models.Model):
+    id = models.AutoField(primary_key=True)
     user = models.ForeignKey("User", on_delete=models.CASCADE)
     creation_date = models.DateTimeField()
     description = models.CharField(max_length=500, blank=False)
