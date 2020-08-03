@@ -2,8 +2,8 @@ from django.http import JsonResponse
 from rest_framework.parsers import JSONParser
 from rest_framework import status
 
-from .serializers import UserSerializer, PostSerializer, MediaSerializer
-from .models import User, Post, Media
+from .serializers import UserSerializer, PostSerializer
+from .models import User, Post
 from rest_framework.decorators import api_view
 from passlib.hash import argon2 as a2
 
@@ -30,13 +30,13 @@ def users(request):
 		users_serializer = UserSerializer(data=users_data)
 		# Encrypts password
 		try:
-			users_data["password"] = a2.using(rounds=5, salt_size=3000, digest_size=3000).hash(users_data["password"])
+			users_data["password"] = a2.using(rounds=5, salt_size=20, digest_size=20).hash(users_data["password"])
 		except:
 			pass
 		# verifies POST data
 
 		if users_serializer.is_valid():
-			users_serializer.save(method="POST")
+			users_serializer.save()
 			return JsonResponse(users_serializer.data, status=status.HTTP_201_CREATED)
 		# returns an error if NOT NULL or UNIQUE rules are not respected
 		return JsonResponse(users_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
@@ -51,17 +51,17 @@ def settings_password(request, user_name):
 
 	if request.method == "PUT":
 		user_data = JSONParser().parse(request)
-		user_serializer = UserSerializer(user, data=user_data)
+		user_data["user_name"] = user_name
 		# Encrypts password
 		try:
-			user_data["password"] = a2.using(rounds=5, salt_size=3000, digest_size=3000).hash(user_data["password"])
+			user_data["password"] = a2.using(rounds=5, salt_size=20, digest_size=20).hash(user_data["password"])
 		except:
 			pass
 
-		method = request.method
+		user_serializer = UserSerializer(user, data=user_data)
 		# verifies PUT data
 		if user_serializer.is_valid():
-			user_serializer.save(method=method)
+			user_serializer.save()
 			return JsonResponse(user_serializer.data)
 
 	return JsonResponse(user_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
