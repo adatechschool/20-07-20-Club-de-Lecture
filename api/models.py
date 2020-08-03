@@ -10,7 +10,7 @@ class User(models.Model):
     avatar = models.CharField(max_length=200, blank=True)
 
     def save(self, *args, **kwargs):
-            super().save()
+        super().save()
         return
 
 # generate the table to store posts
@@ -20,5 +20,5 @@ class Post(models.Model):
     description = models.CharField(max_length=500, blank=False)
 
     def save(self, *args, **kwargs):
-            super().save()
+        super().save()
         return
