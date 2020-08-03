@@ -32,7 +32,7 @@ filtrage:
     /posts?description=
 
 ## Change Post
-### https://clublecture.herokuapp.com/api/(user_name)/(post_id)
+### https://clublecture.herokuapp.com/api/posts/(user_name)/(post_id)
 
   format:
 
