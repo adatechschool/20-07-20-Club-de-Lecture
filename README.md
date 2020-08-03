@@ -40,6 +40,6 @@ format:
      {
     "user_name": "", STRING
     "email": "", STRING
-    "password": "", STRING
+    "password": "", STRING !! New Password
     "avatar": "", STRING
      }
