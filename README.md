@@ -20,7 +20,7 @@ filtrage:
 ### https://clublecture.herokuapp.com/api/posts
 
   format:
-
+  
       {
       "user": 1, INT
       "creation_date": "2000-10-23T04:05:06Z", DATETIME
@@ -37,9 +37,9 @@ filtrage:
 
 format:
 
-   {
-   "user_name": "", STRING
-   "email": "", STRING
-   "password": "", STRING
-   "avatar": "", STRING
-   }
+     {
+    "user_name": "", STRING
+    "email": "", STRING
+    "password": "", STRING
+    "avatar": "", STRING
+     }
