@@ -1,6 +1,7 @@
 # API (master == back-end)
 
-## https://clublecture.herokuapp.com/api/users
+## Add User
+### https://clublecture.herokuapp.com/api/users
 
   format:
 
@@ -15,7 +16,8 @@ filtrage:
 
     /users?user_name=
 
-## https://clublecture.herokuapp.com/api/posts
+## Add Post
+### https://clublecture.herokuapp.com/api/posts
 
   format:
 
@@ -30,8 +32,8 @@ filtrage:
     /posts?user_name=
     /posts?description=  
 
-# Change the user password
-## https://clublecture.herokuapp.com/api/(enter user_name)/settings/password
+## Change the user password
+### https://clublecture.herokuapp.com/api/(user_name)/settings/password
 
 format:
 
