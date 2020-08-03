@@ -29,3 +29,15 @@ filtrage:
 
     /posts?user_name=
     /posts?description=  
+
+# Change the user password
+## https://clublecture.herokuapp.com/api/(enter user_name)/settings/password
+
+format:
+
+   {
+   "user_name": "", STRING
+   "email": "", STRING
+   "password": "", STRING
+   "avatar": "", STRING
+   }
