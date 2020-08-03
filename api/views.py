@@ -18,6 +18,7 @@ def users(request):
 		users = request.query_params.get("user_name", None)
 		if users is not None:
 			queryset = queryset.filter(user_name__icontains=users)
+			print(queryset[0])
 
 		# returns all users that match the filter
 		users_serializer = UserSerializer(queryset, many=True)
@@ -40,13 +41,13 @@ def users(request):
 		return JsonResponse(users_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(["PUT"])
-def settings_password(request, pk):
+def settings_password(request, user_name):
 	if request.method == "PUT":
 		try:
-			post = Post.objects.get(pk=pk)
-		except Post.DoesNotExist:
+			user = User.objects.get(user_name=user_name)
+		except User.DoesNotExist:
 			return JsonResponse({"message": "Post does not exist"}, status=status.HTTP_404_NOT_FOUND)
-
+	return JsonResponse({"message": "KEK"}, status=status.HTTP_404_NOT_FOUND)
 
 
 #  for adding and fetching posts
