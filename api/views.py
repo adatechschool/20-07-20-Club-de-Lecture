@@ -39,11 +39,18 @@ def users(request):
 		# returns an error if NOT NULL or UNIQUE rules are not respected
 		return JsonResponse(users_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+@api_view(["PUT"])
+def settings_password(request, pk):
+	if request.method == "PUT":
+		try:
+			post = Post.objects.get(pk=pk)
+		except Post.DoesNotExist:
+			return JsonResponse({"message": "Post does not exist"}, status=status.HTTP_404_NOT_FOUND)
 
 
 
 #  for adding and fetching posts
-@api_view(["GET", "POST", "PUT", "DELETE"])
+@api_view(["GET", "POST"])
 def posts(request):
 	if request.method == "GET":
 		queryset = Post.objects.all()
