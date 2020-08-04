@@ -86,7 +86,6 @@ DATABASES = {
         'NAME': 'back',
         'USER': 'nicolas',
         'PASSWORD': 'Hydra!00',
-        # 'ALLOWED_HOSTS ': ['localhost', "https://clublecture.herokuapp.com"],
         'PORT': '',
     }
 }
@@ -138,6 +137,5 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ORIGIN_WHITELIST = (
-    # 'http://localhost:8081',
     "https://club-de-lecture.herokuapp.com",
 )
