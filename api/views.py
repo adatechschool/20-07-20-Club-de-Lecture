@@ -75,10 +75,14 @@ def posts(request):
 
 		# to search for specific posts by users or content
 		user_id = request.query_params.get("user_id", None)
+		user_name = request.query_params.get("user_name", None)
 		search = request.query_params.get("description", None)
 
 		if user_id  is not None:
 			queryset = queryset.filter(user_id__in=user_id)
+
+		if user_name is not None:
+			queryset = queryset.filter(user_name=user_name)
 
 		if search is not None:
 			queryset = queryset.filter(description__icontains=search)
