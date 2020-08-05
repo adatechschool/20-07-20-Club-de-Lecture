@@ -9,7 +9,7 @@
   <body>
     <form id="formulaire" action="index.html" method="post">
       <h1>Publication</h1>
-      <textarea name="description" rows="8" cols="80"></textarea>
+      <textarea name="description" rows="8" cols="80" oninput="compteur()"></textarea>
       <button type="button" name="button" onclick="envoiPublication()">Publier</button>
       <p id="message"></p>
     </form>

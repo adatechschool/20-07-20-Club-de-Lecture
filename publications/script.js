@@ -18,6 +18,7 @@ function fetch_publications() {
 }
 
 function create_div(publication) {
+//  console.log(publication)
   var new_div = document.createElement('div');
 
   new_div.innerHTML =`
@@ -27,11 +28,14 @@ function create_div(publication) {
   <div class ="publicationContent">
     ${publication.description}
   </div>
-  <textarea name="" id="boiteDeSaisie_${publication.id}" style="display:none;">
-    ${publication.description}
-  </textarea>
+  <div id="zoneEdition_${publication.id}" style="display:none;">
+  <textarea >${publication.description}</textarea>
   <div class = "publicationDate">
     ${publication.creation_date}
+  </div>
+  <button type="button" onclick="enregistrerModifications(${publication.id},'${publication.user_name}')" >
+    Enregistrer
+  </button>
   </div>
   <button type="button" onclick="modifierPublication(${publication.id})">
     Modifier
@@ -39,8 +43,34 @@ function create_div(publication) {
   return new_div;
 }
 
+function enregistrerModifications(numeroClique,userNameCorrespondant){
+
+  let newText = document.querySelector(`#zoneEdition_${numeroClique} textarea`).value ;
+  console.log(newText);
+
+  let object = {};
+  object['description'] = newText;
+
+  console.log(object)
+
+  let json = JSON.stringify(object);
+  var req = new XMLHttpRequest();
+  req.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200){
+      console.log("ça marche")
+    }
+    else if (this.readyState == 4) {
+      console.log("ça marche pas")
+    }
+  };
+  let url = `https://clublecture.herokuapp.com/api/posts/${userNameCorrespondant}/${numeroClique}`
+  req.open("PUT", url);
+  req.send(json);
+
+}
+
 function modifierPublication(numeroClique) {
   console.log("fonction de modification de la publication numero " + numeroClique)
-  let boite = document.getElementById("boiteDeSaisie_"+numeroClique)
+  let boite = document.getElementById("zoneEdition_"+numeroClique)
   boite.style.display = "block";
 }

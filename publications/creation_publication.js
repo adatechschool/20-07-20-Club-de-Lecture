@@ -1,6 +1,3 @@
-console.log("Coucou");
-
-
 function envoiPublication()
 {
   let publication = new FormData(document.getElementById("formulaire"))
@@ -27,4 +24,18 @@ function envoiPublication()
   return
 
 
+}
+
+function compteur()
+{
+ const limit = 10;
+
+ let valeur = document.querySelector('textarea').value;
+ console.log(valeur);
+ document.querySelector('p').innerHTML= limit - valeur.length;
+if (valeur.length > limit){
+  document.querySelector('button').disabled = true;
+}else{
+  document.querySelector('button').disabled = false;
+}
 }
