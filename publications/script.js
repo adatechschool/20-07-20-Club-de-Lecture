@@ -18,22 +18,24 @@ function fetch_publications() {
 }
 
 function create_div(publication) {
-  var new_div = document.createElement('div')
-  new_div.innerHTML = '<div class = "userName"> ' + publication.user_name +
-    '</div> <div class = "publicationContent"> ' +
-    publication.description +
-    '</div>' +
-    '<textarea name="" id="boiteDeSaisie_'
-    + publication.id
-    + '" style="display:none;"> ' +
-    publication.description +
-    '"</textarea>' +
-    ' <div class = "publicationDate"> ' +
-    publication.creation_date + '</div>' +
-    '<button type="button" onclick="modifierPublication('
-    + publication.id
-    +')">Modifier' +
-    '</button>';
+  var new_div = document.createElement('div');
+
+  new_div.innerHTML =`
+  <div class ="userName">
+    ${publication.user_name}
+  </div>
+  <div class ="publicationContent">
+    ${publication.description}
+  </div>
+  <textarea name="" id="boiteDeSaisie_${publication.id}" style="display:none;">
+    ${publication.description}
+  </textarea>
+  <div class = "publicationDate">
+    ${publication.creation_date}
+  </div>
+  <button type="button" onclick="modifierPublication(${publication.id})">
+    Modifier
+  </button>`;
   return new_div;
 }
 
