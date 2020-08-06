@@ -118,3 +118,8 @@ def modify_post(request, user_name, pk):
 			return JsonResponse(post_serializer.data)
 
 		return JsonResponse(post_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(["POST"])
+def test_authentication (request):
+    users_data = JSONParser().parse(request)
+
