@@ -4,7 +4,8 @@
 
 Attention, c'est spécifique à cette branche du dépôt, qui est faite pour
 simplifier les tests avant de porter les modifications dans la branche déployée
-en production.
+en production. En particulier, elle utilise une base de données SQLite plutôt
+que PostgreSQL.
 
 On commence par créer et activer un environnement virtuel Python3 :
 
