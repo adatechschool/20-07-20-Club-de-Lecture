@@ -6,6 +6,6 @@ localement, le backend. Voir la branche `test-api-local`.
 
 Démarrer un serveur web qui hébergera le front-end de la sorte 
 
-    python -m http.server 9000
+    python3 -m http.server 9000
 
 Ensuite il suffit de se connecter ici : <http://localhost:9000>.
