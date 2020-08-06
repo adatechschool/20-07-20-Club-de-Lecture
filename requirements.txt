@@ -1,7 +1,6 @@
 Django
 django-heroku
 gunicorn
-psycopg2
 pytz
 django-rest_framework
 django-cors-headers
