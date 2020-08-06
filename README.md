@@ -1,31 +1,11 @@
-# API (master == back-end)
+# Front-end club de lecture
 
-## https://clublecture.herokuapp.com/api/users
+Ceci est uniquement la version pour test en local : les scripts JS se connecte à
+l'URL de base `http://localhost:8000`. Il faut donc faire tourner aussi,
+localement, le backend. Voir la branche `test-api-local`.
 
-  format:
+Démarrer un serveur web qui hébergera le front-end de la sorte 
 
-     {
-     "user_name": "", STRING
-     "email": "", STRING
-     "password": "", STRING
-     "avatar": "", STRING
-     }
+    python -m http.server 9000
 
-filtrage:
-
-    /users?user_name=
-
-## https://clublecture.herokuapp.com/api/posts
-
-  format:
-
-      {
-      "user": 1, INT
-      "creation_date": "2000-10-23T04:05:06Z", DATETIME
-      "description": "hey" STRING
-      }
-
-filtrage:  
-
-    /posts?user_name=
-    /posts?description=  
+Ensuite il suffit de se connecter ici : <http://localhost:9000>.
