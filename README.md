@@ -7,6 +7,9 @@ simplifier les tests avant de porter les modifications dans la branche déployé
 en production. En particulier, elle utilise une base de données SQLite plutôt
 que PostgreSQL.
 
+Installez le paquet `python3-virtualenv` sur votre distribution (sous ArchLinux,
+`python-virtualenv`).
+
 On commence par créer et activer un environnement virtuel Python3 :
 
     virtualenv3 ~/clublecture
