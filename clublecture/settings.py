@@ -82,11 +82,8 @@ ALLOWED_HOSTS = ['localhost', "clublecture.herokuapp.com", "127.0.0.1"]
 # this works localy
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'back',
-        'USER': 'nicolas',
-        'PASSWORD': 'Hydra!00',
-        'PORT': '',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
