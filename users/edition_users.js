@@ -13,7 +13,7 @@ function fetch_users() {
 
     }
   };
-  req.open("GET", "https://clublecture.herokuapp.com/api/users")
+  req.open("GET", "http://localhost:8000/api/users")
   req.send();
 }
 

@@ -18,7 +18,7 @@ function envoiPublication()
       document.getElementById("message").innerHTML = "votre publication n'a pas pu être postée";
     }
   };
-  req.open("POST", "https://clublecture.herokuapp.com/api/posts");
+  req.open("POST", "http://localhost:8000/api/posts");
   req.send(json);
 
   return

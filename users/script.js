@@ -14,7 +14,7 @@ function envoiDonnees() {
       document.getElementById("message").innerHTML = "votre compte n'a pas pu être créé";
     }
   };
-  req.open("POST", "https://clublecture.herokuapp.com/api/users");
+  req.open("POST", "http://localhost:8000/api/users");
   req.send(json);
 
   return

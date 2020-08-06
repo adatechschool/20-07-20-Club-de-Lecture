@@ -13,7 +13,7 @@ function fetch_publications() {
 
     }
   };
-  req.open("GET", "https://clublecture.herokuapp.com/api/posts")
+  req.open("GET", "http://localhost:8000/api/posts")
   req.send();
 }
 
@@ -63,7 +63,7 @@ function enregistrerModifications(numeroClique,userNameCorrespondant){
       console.log("ça marche pas")
     }
   };
-  let url = `https://clublecture.herokuapp.com/api/posts/${userNameCorrespondant}/${numeroClique}`
+  let url = `http://localhost:8000/api/posts/${userNameCorrespondant}/${numeroClique}`
   req.open("PUT", url);
   req.send(json);
 
