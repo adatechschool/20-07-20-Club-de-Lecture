@@ -1,7 +1,31 @@
 # API (master == back-end)
 
-## Add User
-### https://clublecture.herokuapp.com/api/users
+## Comment tester le backend en local
+
+Attention, c'est spécifique à cette branche du dépôt, qui est faite pour
+simplifier les tests avant de porter les modifications dans la branche déployée
+en production.
+
+On commence par créer et activer un environnement virtuel Python3 :
+
+    virtualenv3 ~/clublecture
+    . ~/clublecture/bin/activate
+
+Ensuite on installe les paquets python nécessaires au backend :
+
+    pip install -r requirements.txt
+
+Ensuite on doit pouvoir lancer le serveur 
+
+    ./manage.py runserver
+
+Il est possible qu'il manque une ou deux commandes à faire avant le `runserver`,
+à tester.
+
+## Documentation de l'API
+
+### Add User
+#### https://clublecture.herokuapp.com/api/users
 
   format:
 
@@ -16,8 +40,8 @@ filtrage:
 
     /users?user_name=
 
-## Add Post
-### https://clublecture.herokuapp.com/api/posts
+### Add Post
+#### https://clublecture.herokuapp.com/api/posts
 
   format:
 
@@ -31,8 +55,8 @@ filtrage:
     /posts?user_name=
     /posts?description=
 
-## Change Post
-### https://clublecture.herokuapp.com/api/posts/(user_name)/(post_id)
+### Change Post
+#### https://clublecture.herokuapp.com/api/posts/(user_name)/(post_id)
 
   format:
 
@@ -41,8 +65,8 @@ filtrage:
       "description": "hey" STRING
       }
 
-## Change the user password
-### https://clublecture.herokuapp.com/api/(user_name)/settings/password
+### Change the user password
+#### https://clublecture.herokuapp.com/api/(user_name)/settings/password
 
 format:
 
