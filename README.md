@@ -19,6 +19,10 @@ Ensuite on installe les paquets python nécessaires au backend :
 
     pip install -r requirements.txt
 
+Ensuite il faut préparer la base de données :
+
+    ./manage.py migrate
+
 Ensuite on doit pouvoir lancer le serveur 
 
     ./manage.py runserver
